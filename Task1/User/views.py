@@ -69,8 +69,7 @@ class SearchView(APIView):
             User_id = User.id
         except AuthenticationFailed as e:
             return Response({'error': str(e)}, status=status.HTTP_401_UNAUTHORIZED)
-    
-    #keyword = request.GET.get('keyword')
+        
         if not keyword:
             return Response({'error':'Provide any key word'}, status=status.HTTP_204_NO_CONTENT)
     
@@ -93,7 +92,7 @@ class SearchView(APIView):
     
 
 @method_decorator(csrf_exempt, name='dispatch')
-@method_decorator(ratelimit(key='user_or_ip', rate='3/m', method='POST', block=True), name='dispatch')
+@method_decorator(ratelimit(key='user_or_ip', rate='3/m', method='POST', block=True), name='dispatch') #limit the number of request in one minute
 class SendFriendRequestView(APIView):
     def post(self,request,to_user_id_sent):
         token = request.COOKIES.get('jwt')
@@ -138,7 +137,7 @@ class AcceptsRequstView(APIView):
         friend_request.save()
         return Response({'message':'The Friend request was accepted'})
     
-    
+#reject the pending request of a user, where the pending requests to specific user will be displayed by the function pending_request    
 class RejectRequstView(APIView):
     def put(self,request,request_id):
         token = request.COOKIES.get('jwt')
@@ -157,6 +156,8 @@ class RejectRequstView(APIView):
         return Response({'message':'The Friend request was Rejected'})
 
 
+#API endpoint to list pending friend requests that the user needs to accept
+
 class PendingRequestsView(APIView):
     def pending_request(self,request):
         token = request.COOKIES.get('jwt')
@@ -172,6 +173,7 @@ class PendingRequestsView(APIView):
         return Response(serializer.data,status=status.HTTP_200_OK)
 
 
+#list The friends accepted the friend request of the user
 class FriendListView(APIView):
     def get(self,request):
         token = request.COOKIES.get('jwt')
