@@ -1,40 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Networking - README</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        
-  h1, h2, h3 {
-            color: #333;
-        }
-        
-  code {
-            font-family: Consolas, monospace;
-            background-color: #f0f0f0;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        
-  pre {
-            background-color: #f5f5f5;
-            padding: 10px;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-        
-  .container {
-            max-width: 800px;
-            margin: auto;
-        }
-    </style>
-</head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
 <body>
     <div class="container">
         <h1>Social Networking</h1>
@@ -59,7 +29,7 @@
   <h3>Steps:</h3>
         <ol>
             <li><strong>Clone the repository:</strong></li>
-            <pre><code>git clone &lt;repository-url&gt;
+            <pre><code>git clone &lt;https://github.com/VISHNURAJESHP/Social-Networking.git&gt;
 cd &lt;project-folder&gt;</code></pre>
 
   <li><strong>Set up environment variables:</strong></li>
